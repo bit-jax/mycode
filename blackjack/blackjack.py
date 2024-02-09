@@ -5,7 +5,7 @@ def getInput():
     return user_input
 
 def checkInput(input):
-    if input != 'h' or input != 's' or input != 'q':
+    if input != 'h' and input != 's' and input != 'q':
         print("Try again. h for Hit. s for Stay. q for quit")
         return 0
     else:
@@ -15,7 +15,8 @@ def draw(deck_size):
     i = randrange(0,deck_size)
     return i
 
-# deal(player_hand,dealer_hand):
+# deal(player_hand,dealer_hand,deck):
+
 
 # def hit(hand):
 
@@ -31,11 +32,12 @@ def main():
     player_hand = 0
     dealer_hand = 0
 
-    deck = deal(player_hand, dealer_hand)
+    # deck = deal(player_hand, dealer_hand,deck)
 
     
     while quit == False:
         player_move = getInput()
+        player_move = checkInput(player_move)
         if player_move:
             if player_move == 'h':
                 card = draw(len(deck))
@@ -46,6 +48,7 @@ def main():
                 # stay()
             else:
                 quit = True
+        
         
 
 
